@@ -35,7 +35,7 @@
       <button id="video-permission-button">Permiso VR video</button>
     </div>
 
-    <a-scene fog="type: linear; near:12; far:20; color: #dbdedb;"><!--Night mode: #0c192a-->
+    <a-scene fog="type: linear; near:12; far:20; color: #565756;"><!--Night mode: #0c192a-->
 
       <a-assets>
         <img src="assets/play.png" id="play" crossorigin="anonymous">
@@ -82,9 +82,20 @@
       <a-entity
           geometry="primitive: plane; width: 10000; height: 10000;" rotation="-90 0 0"
           material="src: #grid; repeat: 10000 10000; transparent: true; opacity:0.3;"></a-entity>
-      <a-sky color="#dbdedb"></a-sky>
+      <a-sky color="#565756"></a-sky>
       <a-entity light="color: #FFF; intensity: 1; type: ambient;"></a-entity>
       <!-- END ENVIRONMENT -->
+      
+      <a-image 
+      rotation="0 0 5"
+      position="0.6 5.5 -0.2"
+      geometry="primitive: plane; width: 7; height:1"
+      src="#text"
+      ></a-image>
+      
+      
+      
+      
     </a-scene>
 
     <script src="js/AVideoPlayer.js"></script>
