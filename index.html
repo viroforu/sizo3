@@ -2,16 +2,10 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Player Demo</title>
-    
+    <title>Grid Demo</title>
     <script src="https://aframe.io/releases/0.5.0/aframe.min.js"></script>
     <script src="https://unpkg.com/aframe-animation-component/dist/aframe-animation-component.min.js"></script>
     <script src="https://rawgit.com/mayognaise/aframe-mouse-cursor-component/master/dist/aframe-mouse-cursor-component.min.js"></script>
-
-   
-   
- 
-
 
     <style type="text/css">
       #video-permission {
@@ -20,7 +14,7 @@
           left: 0;
           width: 100%;
           height: 100%;
-          background: rgb(214, 212, 212);
+          background: white;
           z-index: 10000;
           display: none;
       }
@@ -37,19 +31,11 @@
   </head>
   <body>
 
-    
-
     <div id="video-permission">
-      <button id="video-permission-button">Permiso VR video</button>
+      <button id="video-permission-button">Allow VR video</button>
     </div>
 
-
-
-    <a-scene fog="type: linear; near:12; far:20; color: #565756;"> 
-      <!--Night mode: #0c192a  #dbdedb #2f302f  -->
-
-
-     
+    <a-scene fog="type: linear; near:12; far:20; color: #dbdedb;"><!--Night mode: #0c192a-->
 
       <a-assets>
         <img src="assets/play.png" id="play" crossorigin="anonymous">
@@ -60,14 +46,9 @@
       </a-assets>
 
       <a-assets>
-        <img id="text" src="/images/text.png" crossorigin="anonymous" />
         <img src="assets/white_grid_thin.png" id="grid" crossorigin="anonymous">
-        <video id="video-src" preload="auto"  src="/assets/compilation.mp4"></video>
+        <video id="video-src" src="assets/interstellar.mp4"></video>
       </a-assets>
-
-     
-
-  
 
       <!-- CURSOR -->
       <a-entity position="0 1.8 0">
@@ -101,26 +82,15 @@
       <a-entity
           geometry="primitive: plane; width: 10000; height: 10000;" rotation="-90 0 0"
           material="src: #grid; repeat: 10000 10000; transparent: true; opacity:0.3;"></a-entity>
-      <a-sky color="#565756"></a-sky>
+      <a-sky color="#dbdedb"></a-sky>
       <a-entity light="color: #FFF; intensity: 1; type: ambient;"></a-entity>
       <!-- END ENVIRONMENT -->
-
-      <a-image 
-      rotation="0 0 5"
-      position="0.6 5.5 -0.2"
-      geometry="primitive: plane; width: 7; height:1"
-      src="#text"
-      ></a-image>
-
     </a-scene>
-
 
     <script src="js/AVideoPlayer.js"></script>
     <script type="text/javascript">
       let scene = document.querySelector('a-scene');
       var cursor = document.querySelector('a-cursor');
-
-      
 
       /**
       * CINEMA MODE
@@ -133,7 +103,7 @@
       scene.lightOn = function() {
         scene.islightOn = false;
         scene.removeAttribute('animation__fog');
-        scene.setAttribute('animation__fogback', "property: fog.color; to: #565756; dur: 800");
+        scene.setAttribute('animation__fogback', "property: fog.color; to: #dbdedb; dur: 800");
       }
 
       /**
@@ -167,7 +137,5 @@
         }
       });
     </script>
-
-
   </body>
 </html>
